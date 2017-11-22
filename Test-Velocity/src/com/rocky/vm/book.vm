@@ -1,0 +1,22 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+我的第一个模版
+<table border="1px">
+    <tr>
+        <th>书名</th>
+        <th>价格</th>
+        <th>出版日期</th>
+    </tr>
+    #foreach( $book in $list )
+    <tr>
+        <td>$book.bookname</td>
+        <td>$book.bookprice </td>
+        <td>$book.publishDate </td>
+    </tr>
+    #end
+</table>
+</body>
+</html>
