@@ -1,4 +1,4 @@
-package com.rocky.jms.queue;
+package com.rocky.jms.topic;
 
 /**
  * Created by luoqi3 on 2017/11/12.
@@ -16,7 +16,7 @@ import javax.jms.*;
 public class AppProducer {
 
     private static final String url="tcp://127.0.0.1:61616";
-    private static final String QueueName="queue-test";
+    private static final String TopicName="topic-test";
 
 
     public static void main(String[] args) throws JMSException {
@@ -33,7 +33,7 @@ public class AppProducer {
         Session session=connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         //5.创建一个目标
-        Destination destination=session.createQueue(QueueName);
+        Destination destination=session.createTopic(TopicName);
 
         //6.创建一个生产者
         MessageProducer producer=session.createProducer(destination);

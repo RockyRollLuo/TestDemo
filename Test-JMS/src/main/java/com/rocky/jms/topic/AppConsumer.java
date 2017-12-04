@@ -1,23 +1,15 @@
-package com.rocky.jms.queue;
-
-/**
- * Created by luoqi3 on 2017/11/12.
- * 需要开启D:\SoftwareInstall\apache-activemq-5.15.2\bin\win64\activemq.bat
- * 或者点击apache-activemq-5.15.2\bin\win64\InstallService.bat,再在电脑服务中开启ActiveMQ服务
- */
+package com.rocky.jms.topic;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
 /**
- * 生产者
+ * Created by luoqi3 on 2017/11/12.
  */
-public class AppProducer {
-
-    private static final String url="tcp://127.0.0.1:61616";
-    private static final String QueueName="queue-test";
-
+public class AppConsumer {
+    private static final String url="tcp:127.0.0.1:61616";
+    private static final String TopicName="topic-test";
 
     public static void main(String[] args) throws JMSException {
         //1.创建链接工厂
@@ -33,9 +25,9 @@ public class AppProducer {
         Session session=connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         //5.创建一个目标
-        Destination destination=session.createQueue(QueueName);
+        Destination destination=session.createTopic(TopicName);
 
-        //6.创建一个生产者
+        //6.创建一个消费者
         MessageProducer producer=session.createProducer(destination);
 
         for(int i=0;i<100;i++){
@@ -50,8 +42,4 @@ public class AppProducer {
         //9.关闭
         connection.close();
     }
-
-
-
-
 }
