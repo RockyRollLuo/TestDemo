@@ -1,7 +1,7 @@
 package proxy.cglib;
 
 /**
- * Created by luoqi3 on 2017/12/4.
+ * Created by Rocky on 2017/12/4.
  */
 public class BookFaceImpl {
     public void addBook(){
