@@ -15,9 +15,11 @@ public class BookFacedCglib implements MethodInterceptor {
     //创建代理对象
     public Object getInstance(Object target){
         this.target=target;
+        //工具类
         Enhancer enhancer=new Enhancer();
-        enhancer.setSuperclass(this.target.getClass());
-        //回调方法
+        //设置父类
+        enhancer.setSuperclass(target.getClass());
+        //设置回调方法
         enhancer.setCallback(this);
         //创建代理对象
         return enhancer.create();
@@ -27,6 +29,7 @@ public class BookFacedCglib implements MethodInterceptor {
     @Override
     public Object intercept(Object obj, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("事前处理消息");
+        //执行目标对象的方法
         methodProxy.invokeSuper(obj,objects);
         System.out.println("事后处理消息");
         return null;
