@@ -11,9 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:applicationContext4.xml")
 public class TransactionTest {
 
-	/**
-	 * һ��Ҫע�������:��Ϊ�����������ǿ�Ĳ���
-	 */
+
 	@Resource(name="accountService")
 	private AccountService accountService;
 	

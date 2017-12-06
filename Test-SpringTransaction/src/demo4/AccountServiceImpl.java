@@ -1,25 +1,19 @@
 package demo4;
 
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @Transactional
- *
- *
- *
+ * Transactional可配置参数,也可不配置
  */
-@Transactional
+//@Transactional
+//@Transactional(propagation = Propagation.REQUIRED)
+@Transactional(isolation = Isolation.DEFAULT)
 public class AccountServiceImpl implements AccountService {
 	
 	private AccountDao accountDao;
 
-
-	/**
-	 *
-	 * @param out
-	 * @param in
-	 * @param money
-	 */
 	@Override
 	public void transfer( String out, String in, Double money) {
 		accountDao.outMoney(out, money);
@@ -27,7 +21,6 @@ public class AccountServiceImpl implements AccountService {
 		accountDao.inMoney(in, money);
 		
 	}
-
 	public void setAccountDao(AccountDao accountDao) {
 		this.accountDao = accountDao;
 	}
