@@ -8,7 +8,8 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by geely on 2015/11/22.
+ * Formatter接口
+ *
  */
 public class MyDateFormatter implements Formatter<Date> {
 

@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by geely on 2015/11/22.
- */
+
 @Controller
 public class TestController {
     /**
@@ -174,6 +172,12 @@ public class TestController {
         return admin.toString();
     }
 
+
+    /**
+     * Formatter
+     * @param date1
+     * @return
+     */
     @RequestMapping(value = "date1.do")
     @ResponseBody
     public String date1(Date date1){
@@ -185,6 +189,11 @@ public class TestController {
         binder.registerCustomEditor(Date.class,new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"),true));
     }
 
+    /**
+     * Converter
+     * @param date2
+     * @return
+     */
     @RequestMapping(value = "date2.do")
     @ResponseBody
      public String date2(Date date2){
@@ -192,7 +201,12 @@ public class TestController {
     }
 
 
-
+    /**
+     * RESTful 资源表现形式
+     * book是一个资源，url中不要体现资源的形式，而在contentType中体现资源的表现形式
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/book",method = RequestMethod.GET)
     @ResponseBody
     public String book(HttpServletRequest request){
@@ -207,6 +221,12 @@ public class TestController {
         return "book.default";
     }
 
+
+    /**
+     * RESTful风格post、get、delete、put方法
+     * @param subjectId
+     * @return
+     */
     @RequestMapping(value = "/subject/{subjectId}",method = RequestMethod.GET)
     @ResponseBody
     public String subjectGet(@PathVariable("subjectId") String subjectId){
@@ -233,15 +253,7 @@ public class TestController {
 
 
 
-
-
-
-
-
-
-
-
-
+    
 
     @RequestMapping(value = "converter.do")
     @ResponseBody

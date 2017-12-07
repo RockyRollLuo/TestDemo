@@ -5,16 +5,19 @@ import com.imooc.object.User;
 import java.beans.PropertyEditorSupport;
 
 /**
- * Created by geely on 2015/11/22.
+ * 属性编辑器
+ * 继承PropertyEditorSupport类
+ *
+ * 以String类型传递参数
  */
 public class MyPropertyEditor extends PropertyEditorSupport {
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
-        User u = new User();
+        User user = new User();
         String[] textArray = text.split(",");
-        u.setName(textArray[0]);
-        u.setAge(Integer.parseInt(textArray[1]));
-        this.setValue(u);
+        user.setName(textArray[0]);
+        user.setAge(Integer.parseInt(textArray[1]));
+        this.setValue(user);
     }
 
     public static void main(String[] args) {
