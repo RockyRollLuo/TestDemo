@@ -1,0 +1,8 @@
+.idea
+/target
+.class
+/classes
+/.gradle
+
+/Test-DesignPattern/target/classes/indi/rocky/designpattern/strategy/*.class
+/VideoAudio/out/production/VideoAudio/servlet/*.class

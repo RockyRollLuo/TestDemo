@@ -1,0 +1,40 @@
+group 'indi.rocky.gradle'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+//自定义创建目录任务
+def createDir={
+    path ->
+        File dir=new File(path);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+}
+task makeJavaDir(){
+    def paths=['src/main/java','src/main/resources','src/main/test']
+    doFirst{
+        paths.each(createDir);
+    }
+}
+
+task makeWebDir(){
+    dependsOn 'makeJavaDir'
+    def paths=['src/main/webapp','src/test/webapp']
+    doLast{
+        paths.each(createDir)
+    }
+}
+
+

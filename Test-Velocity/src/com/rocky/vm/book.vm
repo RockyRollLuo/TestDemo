@@ -17,6 +17,13 @@
         <td>$book.publishDate </td>
     </tr>
     #end
+
+
+    #foreach($i in [1..10])
+        <tr>
+            hehe
+        </tr>
+    #end
 </table>
 </body>
 </html>
