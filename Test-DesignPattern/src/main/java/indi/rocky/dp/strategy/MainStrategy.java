@@ -7,7 +7,7 @@ package indi.rocky.dp.strategy;
 /**
  * 测试方法
  */
-public class Main {
+public class MainStrategy {
     public static void main(String[] args) {
         int num1=10,num2=5;   //测试数据
         int output;           //输出值
