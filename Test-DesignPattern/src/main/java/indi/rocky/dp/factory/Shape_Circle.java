@@ -1,7 +1,7 @@
 package indi.rocky.dp.factory;
 
 /**
- * Created by luoqi3 on 2018/1/2.
+ * Created by luoqi on 2018/1/2.
  */
 public class Shape_Circle implements Shape {
     public void draw() {

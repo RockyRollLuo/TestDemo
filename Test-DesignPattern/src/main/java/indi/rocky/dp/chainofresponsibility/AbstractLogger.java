@@ -1,7 +1,7 @@
 package indi.rocky.dp.chainofresponsibility;
 
 /**
- * Created by luoqi3 on 2017/12/29.
+ * Created by luoqi on 2017/12/29.
  */
 public abstract class AbstractLogger {
 
